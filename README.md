@@ -3,7 +3,8 @@
 
 # Server酱：
 负责推送消息到微信。
-[点此查看详情](http://sc.ftqq.com/3.version）
+
+[点此查看详情](http://sc.ftqq.com/3.version)
 
 
 # Github Actions说明
