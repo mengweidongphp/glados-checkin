@@ -1,8 +1,10 @@
 # glados-checkin
   每天自动签到（天数+1），自动推送结果  
 
-# clash 使用教程：  
-  http://www.xmstudent.ml/post-24.html
+# Server酱：
+负责推送消息到微信。
+[点此查看详情](http://sc.ftqq.com/3.version）
+
 
 # Github Actions说明
 ## 一、Fork此仓库
@@ -26,10 +28,12 @@ Actions > Cloud189Checkin > build
 能看到如下图所示，表示成功，或者看你微信通知  
 ![](http://tu.yaohuo.me/imgs/2020/06/289432b53bded61c.png)  
   
-# 腾讯云函数
-复制py代码，将三个参数自行修改  
-
-
-
-此后，将会在每天半夜12点多会自动签到一次  
-若有需求，可以在[.github/workflows/python-publish.yml]中自行修改  
+# 修改签到时间
+可以在[.github/workflows/python-publish.yml]中修改  
+```
+on:
+  schedule:
+    - cron cron表达式
+```
+`0 9 * * * `表示每天9点启动，在GitHub的编辑页面中会有如下提示
+![](https://raw.githubusercontent.com/458744230/pic/master/img/20200727230953.png)
