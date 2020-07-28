@@ -38,13 +38,13 @@ def start():
             time = state.json()['data']['leftDays']
             time = time.split('.')[0]
             #print(time)
-            sever & requests.get('https://sc.ftqq.com/' + sckey + '.send?text='+mess+'，you have '+time+' days left')
+            sever and requests.get('https://sc.ftqq.com/' + sckey + '.send?text='+mess+'，you have '+time+' days left')
         else:
-            sever & requests.get('https://sc.ftqq.com/' + sckey + '.send?text=cookie过期')
+            sever and requests.get('https://sc.ftqq.com/' + sckey + '.send?text=cookie过期')
     except Exception as e:
         print(checkin.json())
         print(state.json())
-        sever & requests.get('https://sc.ftqq.com/' + sckey + '.send?text=签到异常')
+        sever and requests.get('https://sc.ftqq.com/' + sckey + '.send?text=签到异常')
         raise e
 
 
