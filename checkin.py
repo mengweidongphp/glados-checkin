@@ -19,7 +19,8 @@ def start():
     checkin = requests.post(url,headers={'cookie': cookie ,'referer': referer })
     state =  requests.get(url2,headers={'cookie': cookie ,'referer': referer})
    # print(res)
-
+    print(checkin.json())
+    print(state.json())
     if 'message' in checkin.text:
         mess = checkin.json()['message']
         time = state.json()['data']['leftDays']
@@ -28,7 +29,8 @@ def start():
         if sever == 'on':
             requests.get('https://sc.ftqq.com/' + sckey + '.send?text='+mess+'，you have '+time+' days left')
     else:
-        requests.get('https://sc.ftqq.com/' + sckey + '.send?text=cookie过期')
+        if sever == 'on':
+            requests.get('https://sc.ftqq.com/' + sckey + '.send?text=cookie过期')
 
 def main_handler(event, context):
   return start()
