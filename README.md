@@ -30,7 +30,7 @@ Actions > Cloud189Checkin > build
 ![](http://tu.yaohuo.me/imgs/2020/06/289432b53bded61c.png)  
 
 # 修改签到时间
-可以在[.github/workflows/python-publish.yml]中修改  
+可以在[.github/workflows/python-publish.yml](.github/workflows/python-publish.yml)中修改  
 ```
 on:
   schedule:
