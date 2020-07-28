@@ -9,11 +9,6 @@ sckey = os.environ["SCKEY"]
 cookie = os.environ["COOKIE"]
 #'__cfduid=d3459ec306384ca67a65170f8e2a5bd561593049467; _ga=GA1.2.766373509.1593049472; _gid=GA1.2.1338236108.1593049472; koa:sess=eyJ1c2VySWQiOjQxODMwLCJfZXhwaXJlIjoxNjE4OTY5NTI4MzY4LCJfbWF4QWdlIjoyNTkyMDAwMDAwMH0=; koa:sess.sig=6qG8SyMh_5KpSB6LBc9yRviaPvI'
 
-if not sckey:
-    sever = False
-else:
-    sever = sever.lower() == 'on'
-
 def start():
     
     url= "https://glados.rocks/api/user/checkin"
@@ -38,13 +33,13 @@ def start():
             time = state.json()['data']['leftDays']
             time = time.split('.')[0]
             #print(time)
-            sever and requests.get('https://sc.ftqq.com/' + sckey + '.send?text='+mess+'，you have '+time+' days left')
+            sever == 'on' and requests.get('https://sc.ftqq.com/' + sckey + '.send?text='+mess+'，you have '+time+' days left')
         else:
-            sever and requests.get('https://sc.ftqq.com/' + sckey + '.send?text=cookie过期')
+            sever == 'on' and requests.get('https://sc.ftqq.com/' + sckey + '.send?text=cookie过期')
     except Exception as e:
         print(checkin.json())
         print(state.json())
-        sever and requests.get('https://sc.ftqq.com/' + sckey + '.send?text=签到异常')
+        sever == 'on' and requests.get('https://sc.ftqq.com/' + sckey + '.send?text=签到异常')
         raise e
 
 
