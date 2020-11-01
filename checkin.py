@@ -24,7 +24,7 @@ def start():
         checkin = requests.post(url,headers={'cookie': cookie ,'referer': referer })
         state =  requests.get(url2,headers={'cookie': cookie ,'referer': referer})
     except Exception as e:
-        print('Please check if env variable correct')
+        print('签到加速器 Please check if env variable correct')
         print(e)
         raise e
     
